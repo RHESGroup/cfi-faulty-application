@@ -1,0 +1,12 @@
+se3_dispatcher_core.c:18:10:sekey_utilities	48	static
+se3_dispatcher_core.c:57:10:error	24	static
+se3_dispatcher_core.c:66:10:config	40	static
+se3_dispatcher_core.c:181:10:challenge	96	static
+se3_dispatcher_core.c:254:10:login	48	static
+se3_dispatcher_core.c:305:10:logout	24	static
+se3_dispatcher_core.c:324:10:key_edit	88	static
+se3_dispatcher_core.c:429:10:key_list	160	static
+se3_dispatcher_core.c:514:10:dispatcher_call	120	static
+se3_dispatcher_core.c:665:6:se3_dispatcher_init	16	static
+se3_dispatcher_core.c:686:6:set_req_hdr	8	static
+se3_dispatcher_core.c:690:13:login_cleanup	24	static

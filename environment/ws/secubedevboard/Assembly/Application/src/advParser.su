@@ -1,0 +1,3 @@
+advParser.c:5:10:lookForDeviceOfInterest	568	static
+advParser.c:35:9:isBLEScan	568	static
+advParser.c:117:10:getServiceUUID	32	static

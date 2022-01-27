@@ -1,0 +1,136 @@
+//
+//#include <stdlib.h>
+//#include <stdio.h>
+//#include <stddef.h>
+//#include <stdint.h>
+//#include <stdbool.h>
+//
+//#include "./secube-host/L1.h"
+//#include "./secube-host/L1_group.h"
+//
+//
+//void print_sn(uint8_t* v);
+//
+//bool add_group(se3_device_info* devinfo);
+//
+//
+//static uint8_t pin_admin[32] = {
+//	'a','d','m','i','n',0,0,0, 0,0,0,0, 0,0,0,0,
+//	0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0
+//};
+//
+//
+//
+///**
+//*  \brief Example for adding keys to a SEcube device
+//*
+//*  \return void
+//*
+//*  \details Note: The keys will be inserted in ALL the SEcube devices found
+//*/
+//int main() {
+//	se3_disco_it it;
+//
+//	printf("Looking for SEcube devices...\n");
+//	Sleep(3000);
+//
+//	L0_discover_init(&it);
+//
+//	while (L0_discover_next(&it)) {
+//		printf("SEcube found!\nInfo:\n");
+//		printf("Path:\t %ls\n", it.device_info.path);
+//		printf("Serial Number: ");
+//		print_sn(it.device_info.serialno);
+//
+//		if (add_group(&it.device_info)) {
+//			printf("group Added\n");
+//		}
+//		else {
+//			printf("Failure\n");
+//		}
+//	}
+//
+//	getchar();
+//
+//	return (0);
+//}
+//
+//
+///**
+//*  \brief Print Serial Number in readable format
+//*
+//*  \param [in] v Array containing serial number
+//*  \return void
+//*
+//*/
+//void print_sn(uint8_t* v) {
+//	size_t i;
+//	for (i = 0; i < SE3_SERIAL_SIZE; i++) {
+//		printf("%u ", (unsigned)v[i]);
+//	}
+//	printf("\n");
+//
+//
+//	return;
+//}
+//
+//
+//
+///**
+//*  \brief Example: Add group to SEcube Device
+//*
+//*  \param [in] devinfo SEcube Device Information structure
+//*  \return true if succeeded; false otherwise
+//*
+//*/
+//bool add_group(se3_device_info* devinfo) {
+//	se3_device dev;
+//	se3_session session;
+//	se_group group;
+//	bool success = false;
+//	bool logged_in = false;
+//
+//	/***** Open SEcube device *****/
+//	if (SE3_OK != L0_open(&dev, devinfo, 1000)) {
+//		return false;
+//	}
+//	/* */
+//
+//
+//	/***** Change user & admin PIN *****/
+//	// First time, login as admin with default PIN (all zeroes)
+//	if (SE3_OK != L1_login(&session, &dev, pin_admin, SE3_ACCESS_ADMIN, true)) {
+//		goto cleanup;
+//	}
+//	logged_in = true;
+//	/* */
+//
+//
+//	/***** Add group *****/
+//	// group 1
+//
+//	group.group_id=0xFFFFFFFF;
+//	group.group_name=0xBBBBBBBB;
+//	group.num_users=0x0003;
+//	group.num_keys=0x0007;
+//	group.policy.max_num_keys=0xDD;
+//	group.policy.algorithm=aes;
+//	group.policy.liveness_key=0xCCCCCCCC;
+//
+//	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_INSERT, &group)) {
+//		goto cleanup;
+//	}
+//
+//
+//
+//	/***** Clean and Logout *****/
+//	success = true;
+//cleanup:
+//	if (logged_in) {
+//		L1_logout(&session);
+//	}
+//	L0_close(&dev);
+//	return success;
+//	/* */
+//}
+//

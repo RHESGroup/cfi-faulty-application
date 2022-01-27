@@ -1,0 +1,2 @@
+gpio.c:59:6:MX_GPIO_Init	80	static
+gpio.c:172:28:EXTI9_5_IRQHandler	16	static

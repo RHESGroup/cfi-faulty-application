@@ -1,0 +1,197 @@
+17:32:36 **** Incremental Build of configuration Assembly for project SEcubeDevBoard ****
+make all 
+Building file: ../Application/src/gattInterface.c
+Invoking: MCU GCC Compiler
+/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/SEcubeDevBoard/Assembly
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/SEcubeDevBoard/Application/src" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/CMSIS/Include" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/Common" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/Device"  -O0 -Wall -S -save-temps -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/gattInterface.d" -MT"Application/src/gattInterface.o" -o "Application/src/gattInterface.o" "../Application/src/gattInterface.c"
+../Application/src/gattInterface.c: In function 'findService':
+../Application/src/gattInterface.c:7:12: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+     splits = split_string(string, ',', 0);
+            ^
+../Application/src/gattInterface.c: In function 'readChar':
+../Application/src/gattInterface.c:24:13: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+     BLE_CHAR_READ_COMMAND(commandBuffer.buffer, connection, service, 1);
+             ^
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+../Application/src/gattInterface.c:26:32: warning: pointer targets in passing argument 2 of 'readLine' differ in signedness [-Wpointer-sign]
+         readLine(&inputBuffer, line, 0); // blank line
+                                ^
+In file included from ../Application/src/gattInterface.h:6:0,
+                 from ../Application/src/gattInterface.c:1:
+../Application/src/uartInterface.h:53:8: note: expected 'char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ size_t readLine(struct input_buffer *inputBuffer, char *line, uint8_t flush);
+        ^
+../Application/src/gattInterface.c:27:36: warning: pointer targets in passing argument 2 of 'readLine' differ in signedness [-Wpointer-sign]
+         if(!readLine(&inputBuffer, line, 0)){ // actual read
+                                    ^
+In file included from ../Application/src/gattInterface.h:6:0,
+                 from ../Application/src/gattInterface.c:1:
+../Application/src/uartInterface.h:53:8: note: expected 'char *' but argument is of type 'uint8_t * {aka unsigned char *}'
+ size_t readLine(struct input_buffer *inputBuffer, char *line, uint8_t flush);
+        ^
+../Application/src/gattInterface.c:28:23: warning: assignment from incompatible pointer type [-Wincompatible-pointer-types]
+             lineSplit = split_string(line, ',', 1);
+                       ^
+../Application/src/gattInterface.c: In function 'writeResponse':
+../Application/src/gattInterface.c:45:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+         BLE_ANSWER(cmdBuffer->buffer, connIndex, svcIndex, 2, "OK");
+                 ^
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+../Application/src/gattInterface.c:47:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+         sprintf(cmdBuffer->buffer, "OK\r\n");
+                 ^
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+../Application/src/gattInterface.c:51:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+         BLE_ANSWER(cmdBuffer->buffer, connIndex, svcIndex, 2, "OUT");
+                 ^
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+Finished building: ../Application/src/gattInterface.c
+     ^
+../Application/src/gattInterface.c:53:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+         sprintf(cmdBuffer->buffer, "OUT\r\n");
+                 ^
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+../Application/src/gattInterface.c:57:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+ 
+         BLE_ANSWER(cmdBuffer->buffer, connIndex, svcIndex, 2, "system error"); 
+Building file: /Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/gpio.c
+                 ^
+Invoking: MCU GCC Compiler
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/SEcubeDevBoard/Assembly
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+../Application/src/gattInterface.c:59:17: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/SEcubeDevBoard/Application/src" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/CMSIS/Include" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/Common" -I"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/Device"  -O0 -Wall -S -save-temps -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/gpio.d" -MT"Application/src/gpio.o" -o "Application/src/gpio.o" "/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/gpio.c"
+         sprintf(cmdBuffer->buffer, "system error\r\n");
+                 ^
+In file included from ../Application/src/gattInterface.h:1:0,
+                 from ../Application/src/gattInterface.c:1:
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/arm-none-eabi/include/stdio.h:244:5: note: expected 'char * restrict' but argument is of type 'uint8_t * {aka unsigned char *}'
+ int _EXFUN(sprintf, (char *__restrict, const char *__restrict, ...)
+     ^
+../Application/src/gattInterface.c:42:9: warning: unused variable 'answer' [-Wunused-variable]
+    char answer[128];
+         ^
+Finished building: /Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/secube/src/gpio.c
+ 
+Building target: SEcubeDevBoard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F429NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "SEcubeDevBoard.elf" @"objects.list"  
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/bin/ld:Application/src/Common/aes256.o: file format not recognized; treating as linker script
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/bin/ld:Application/src/Common/aes256.o:1: syntax error
+collect2: error: ld returned 1 exit status
+make: *** [SEcubeDevBoard.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+17:32:37 Build Failed. 2 errors, 12 warnings. (took 902ms)
+
+17:32:42 **** Incremental Build of configuration Assembly for project SEcubeDevBoard ****
+make all 
+Building target: SEcubeDevBoard.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -specs=nosys.specs -specs=nano.specs -T"../STM32F429NIHx_FLASH.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "SEcubeDevBoard.elf" @"objects.list"  
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/bin/ld:Application/src/Common/aes256.o: file format not recognized; treating as linker script
+/Applications/STM32CubeIDE.app/Contents/Eclipse/plugins/fr.ac6.mcu.externaltools.arm-none.macos64_1.13.1.201703061524/tools/compiler/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/bin/ld:Application/src/Common/aes256.o:1: syntax error
+collect2: error: ld returned 1 exit status
+make: *** [SEcubeDevBoard.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:52:20 **** Incremental Build of configuration Debug for project Prova Interrupt 2 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:100:6: warning: implicit declaration of function 'HAL_SRAM_Write_16b'; did you mean 'HAL_GPIO_WritePin'? [-Wimplicit-function-declaration]
+      HAL_SRAM_Write_16b(&SRAM_WRITE, (uint32_t*)0x60000000, &dataPtr, 1);
+      ^~~~~~~~~~~~~~~~~~
+      HAL_GPIO_WritePin
+../Core/Src/main.c:100:26: error: 'SRAM_WRITE' undeclared (first use in this function); did you mean 'SRAM_BASE'?
+      HAL_SRAM_Write_16b(&SRAM_WRITE, (uint32_t*)0x60000000, &dataPtr, 1);
+                          ^~~~~~~~~~
+                          SRAM_BASE
+../Core/Src/main.c:100:26: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j7 all" terminated with exit code 2. Build might be incomplete.
+17:56:31 **** Incremental Build of configuration Debug for project Prova Interrupt 2 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:12: warning: variable 'dataPtr' set but not used [-Wunused-but-set-variable]
+   uint16_t dataPtr;
+            ^~~~~~~
+arm-none-eabi-gcc -o "Prova Interrupt 2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/Prova Interrupt 2/STM32F429NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Prova Interrupt 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Prova Interrupt 2.elf
+ 
+arm-none-eabi-objdump -h -S  Prova\ Interrupt\ 2.elf  > "Prova Interrupt 2.list"
+arm-none-eabi-objcopy  -O binary  Prova\ Interrupt\ 2.elf  "Prova Interrupt 2.bin"
+arm-none-eabi-size   Prova\ Interrupt\ 2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6036	     20	   1572	   7628	   1dcc	Prova Interrupt 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Prova Interrupt 2.bin
+ 
+Finished building: Prova Interrupt 2.list
+ 
+17:56:35 **** Incremental Build of configuration Debug for project Prova Interrupt 2 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:12: warning: unused variable 'dataPtr' [-Wunused-variable]
+   uint16_t dataPtr;
+            ^~~~~~~
+arm-none-eabi-gcc -o "Prova Interrupt 2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/Prova Interrupt 2/STM32F429NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Prova Interrupt 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Prova Interrupt 2.elf
+ 
+arm-none-eabi-objdump -h -S  Prova\ Interrupt\ 2.elf  > "Prova Interrupt 2.list"
+arm-none-eabi-objcopy  -O binary  Prova\ Interrupt\ 2.elf  "Prova Interrupt 2.bin"
+arm-none-eabi-size   Prova\ Interrupt\ 2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6032	     20	   1572	   7624	   1dc8	Prova Interrupt 2.elf
+Finished building: default.size.stdout
+Finished building: Prova Interrupt 2.bin
+ 
+ 
+Finished building: Prova Interrupt 2.list
+ 
+18:00:17 **** Incremental Build of configuration Debug for project Prova Interrupt 2 ****
+make -j7 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32F429xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:97:12: warning: unused variable 'dataPtr' [-Wunused-variable]
+   uint16_t dataPtr;
+            ^~~~~~~
+arm-none-eabi-gcc -o "Prova Interrupt 2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/Prova Interrupt 2/STM32F429NIHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Prova Interrupt 2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Prova Interrupt 2.elf
+ 
+arm-none-eabi-objdump -h -S  Prova\ Interrupt\ 2.elf  > "Prova Interrupt 2.list"
+arm-none-eabi-objcopy  -O binary  Prova\ Interrupt\ 2.elf  "Prova Interrupt 2.bin"
+arm-none-eabi-size   Prova\ Interrupt\ 2.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6032	     20	   1572	   7624	   1dc8	Prova Interrupt 2.elf
+Finished building: default.size.stdout
+ 
+Finished building: Prova Interrupt 2.bin
+ 
+Finished building: Prova Interrupt 2.list
+ 

@@ -1,0 +1,13 @@
+16:58:43 **** Build of configuration Debug for project Prova Interrupt ****
+make all 
+Building target: Prova Interrupt.elf
+Invoking: MCU GCC Linker
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/Prova Interrupt/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "Prova Interrupt.elf" @"objects.list"  
+startup/startup_stm32.o: In function `LoopFillZerobss':
+/Users/antonioepifani/Tesi/prova/SEcube firmware 2/environment/ws/Prova Interrupt/Debug/../startup/startup_stm32.s:78: undefined reference to `main'
+collect2: error: ld returned 1 exit status
+make: *** [Prova Interrupt.elf] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+16:58:44 Build Failed. 2 errors, 0 warnings. (took 446ms)
+

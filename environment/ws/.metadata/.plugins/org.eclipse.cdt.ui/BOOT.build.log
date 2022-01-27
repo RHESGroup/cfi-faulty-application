@@ -1,0 +1,10 @@
+16:58:43 **** Build of configuration Debug for project BOOT ****
+make -j7 all 
+arm-none-eabi-size   BOOT.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7560	     20	   1732	   9312	   2460	BOOT.elf
+Finished building: default.size.stdout
+ 
+
+16:58:43 Build Finished. 0 errors, 0 warnings. (took 335ms)
+

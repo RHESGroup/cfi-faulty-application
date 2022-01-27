@@ -1,0 +1,39 @@
+17:12:04 **** Incremental Build of configuration Release for project SEcube_Host_EmptyProject ****
+Info: Internal Builder is used for build
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\se3_common.o" "..\\secube-host\\se3_common.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\hello_world.o" "..\\unused\\hello_world.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o main.o "..\\main.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\crc16.o" "..\\secube-host\\crc16.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\aes256.o" "..\\secube-host\\aes256.c" 
+..\secube-host\aes256.c: In function 'B5_CmacAes256_Finit':
+..\secube-host\aes256.c:1712:5: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+     for (i=0; i<B5_AES_BLK_SIZE; i++)
+     ^~~
+..\secube-host\aes256.c:1715:9: note: ...this statement, but the latter is misleadingly indented as if it is guarded by the 'for'
+         B5_Aes256_Update(&ctx->aesCtx, rSignature, ctx->C, 1);
+         ^~~~~~~~~~~~~~~~
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\tmp_device_init.o" "..\\unused\\tmp_device_init.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\pbkdf2.o" "..\\secube-host\\pbkdf2.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\L0.o" "..\\secube-host\\L0.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\encrypt_data.o" "..\\unused\\encrypt_data.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\L1.o" "..\\secube-host\\L1.c" 
+..\secube-host\L1.c: In function 'L1_digest':
+..\secube-host\L1.c:552:16: warning: pointer targets in initialization differ in signedness [-Wpointer-sign]
+  uint8_t* sp = data_in, *rp = data_out;
+                ^~~~~~~
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\L1_group.o" "..\\secube-host\\L1_group.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\backup_main.o" "..\\unused\\backup_main.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\func_test.o" "..\\unused\\func_test.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\tmp_main.o" "..\\unused\\tmp_main.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\add_keys.o" "..\\unused\\add_keys.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\main.o" "..\\unused\\main.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" "..\\.metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "unused\\device_init.o" "..\\unused\\device_init.c" 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\se3comm.o" "..\\secube-host\\se3comm.c" 
+..\secube-host\se3comm.c:5:0: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+ #pragma warning(disable:4996)
+ 
+gcc -O3 -Wall -c -fmessage-length=0 -o "secube-host\\sha256.o" "..\\secube-host\\sha256.c" 
+gcc -o SEcube_Host_EmptyProject.exe ".metadata\\.plugins\\org.eclipse.cdt.make.core\\specs.o" main.o "secube-host\\L0.o" "secube-host\\L1.o" "secube-host\\L1_group.o" "secube-host\\aes256.o" "secube-host\\crc16.o" "secube-host\\pbkdf2.o" "secube-host\\se3_common.o" "secube-host\\se3comm.o" "secube-host\\sha256.o" "unused\\add_keys.o" "unused\\backup_main.o" "unused\\device_init.o" "unused\\encrypt_data.o" "unused\\func_test.o" "unused\\hello_world.o" "unused\\main.o" "unused\\tmp_device_init.o" "unused\\tmp_main.o" 
+Info: Nothing to build for SEcube_Host_EmptyProject
+Info: Nothing to build for SEcube_Host_EmptyProject

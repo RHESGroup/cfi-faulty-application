@@ -1,0 +1,2 @@
+mainLoop.c:6:9:mainLoop	2040	static
+mainLoop.c:119:6:safeExit	16	static

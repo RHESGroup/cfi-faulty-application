@@ -1,0 +1,3 @@
+gattInterface.c:5:9:findService	32	static
+gattInterface.c:20:9:readChar	64	static
+gattInterface.c:41:6:writeResponse	152	static

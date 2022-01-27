@@ -1,0 +1,9 @@
+se3_sekey.c:11:5:sekey_get_implementation_info	24	static
+se3_sekey.c:19:5:sekey_get_auth	16	static
+se3_sekey.c:23:10:store_user_info	56	static
+se3_sekey.c:86:10:load_user_info	56	static
+se3_sekey.c:133:10:load_encrypted_key_data	2448	static
+se3_sekey.c:240:10:load_key_ids	32	static
+se3_sekey.c:262:10:delete_all_keys	64	static
+se3_sekey.c:313:10:delete_key	56	static
+se3_sekey.c:344:10:insert_key	2472	static

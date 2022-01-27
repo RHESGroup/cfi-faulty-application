@@ -1,0 +1,16 @@
+se3_flash.c:12:13:flash_fill	32	static
+se3_flash.c:29:13:flash_zero	24	static
+se3_flash.c:46:13:flash_program	32	static
+se3_flash.c:66:13:flash_erase	48	static
+se3_flash.c:91:13:flash_swap	56	static
+se3_flash.c:180:6:se3_flash_info_setup	16	static
+se3_flash.c:190:6:se3_flash_canfit	24	static
+se3_flash.c:196:6:se3_flash_init	48	static
+se3_flash.c:257:6:se3_flash_it_write	24	static
+se3_flash.c:263:6:se3_flash_it_init	16	static
+se3_flash.c:268:6:se3_flash_it_next	32	static
+se3_flash.c:300:8:se3_flash_unused	4	static
+se3_flash.c:305:6:se3_flash_it_new	40	static
+se3_flash.c:355:6:se3_flash_pos_delete	24	static
+se3_flash.c:370:6:se3_flash_it_delete	16	static
+se3_flash.c:382:6:se3_flash_bootmode_reset	16	static

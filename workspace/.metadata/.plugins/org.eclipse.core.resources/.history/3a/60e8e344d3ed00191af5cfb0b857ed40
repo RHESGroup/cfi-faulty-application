@@ -1,0 +1,297 @@
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "./secube-host/L1.h"
+#include "./secube-host/L1_group.h"
+
+
+void print_sn(uint8_t* v);
+
+bool add_group(se3_device_info* devinfo);
+
+
+static uint8_t pin_admin[32] = {
+	'a','d','m','i','n',0,0,0, 0,0,0,0, 0,0,0,0,
+	0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0
+};
+
+
+
+/**
+*  \brief Example for adding keys to a SEcube device
+*
+*  \return void
+*
+*  \details Note: The keys will be inserted in ALL the SEcube devices found
+*/
+int main() {
+	se3_disco_it it;
+
+	printf("Looking for SEcube devices...\n");
+	Sleep(3000);
+
+	L0_discover_init(&it);
+
+	while (L0_discover_next(&it)) {
+		printf("SEcube found!\nInfo:\n");
+		printf("Path:\t %ls\n", it.device_info.path);
+		printf("Serial Number: ");
+		print_sn(it.device_info.serialno);
+
+		if (add_group(&it.device_info)) {
+			printf("group Added\n");
+		}
+		else {
+			printf("Failure\n");
+		}
+	}
+
+	getchar();
+
+	return (0);
+}
+
+
+/**
+*  \brief Print Serial Number in readable format
+*
+*  \param [in] v Array containing serial number
+*  \return void
+*
+*/
+void print_sn(uint8_t* v) {
+	size_t i;
+	for (i = 0; i < SE3_SERIAL_SIZE; i++) {
+		printf("%u ", (unsigned)v[i]);
+	}
+	printf("\n");
+
+
+	return;
+}
+
+
+
+/**
+*  \brief Example: Add group to SEcube Device
+*
+*  \param [in] devinfo SEcube Device Information structure
+*  \return true if succeeded; false otherwise
+*
+*/
+bool add_group(se3_device_info* devinfo) {
+	se3_device dev;
+	se3_session session;
+	se_group group, group2;
+	bool success = false;
+	bool logged_in = false;
+
+	/***** Open SEcube device *****/
+	if (SE3_OK != L0_open(&dev, devinfo, 1000)) {
+		return false;
+	}
+	/* */
+
+
+	/***** Change user & admin PIN *****/
+	// First time, login as admin with default PIN (all zeroes)
+	if (SE3_OK != L1_login(&session, &dev, pin_admin, SE3_ACCESS_ADMIN, true)) {
+		goto cleanup;
+	}
+	logged_in = true;
+	/* */
+
+
+	/***** Add group *****/
+// --------------------------------------------------------------------------------------
+// ---> group 1
+	strcpy(group.group_id,"G001");
+	strcpy(group.group_name,"GROUP_TEST_001");
+	group.num_users=0x03;
+	group.num_keys=0x03;
+	group.policy.max_num_keys=0xDD;
+	group.policy.algorithm=0x01;
+	group.policy.liveness_key=0xCCCCCCCC;
+	group.user_list=malloc(sizeof(se_user)*(group.num_users));
+	group.key_list=malloc(sizeof(se_key)*(group.num_keys));
+	// --> user-1
+	strcpy(((group.user_list)+0)->se_id,"U001");
+	strcpy(((group.user_list)+0)->se_username,"USER_TEST_001                ");
+	// --> user-2
+	strcpy(((group.user_list)+1)->se_id,"U002");
+	strcpy(((group.user_list)+1)->se_username,"USER_TEST_002                ");
+	// --> user-3
+	strcpy(((group.user_list)+2)->se_id,"U003");
+	strcpy(((group.user_list)+2)->se_username,"USER_TEST_003                ");
+	// --> key_1
+	strcpy((group.key_list)->se_key_id,"K001");
+	strcpy((group.key_list)->se_key_label,"KEY_TEST_001       ");
+	strcpy((group.key_list)->se_key_owner_id,"W001");
+	group.key_list->se_key_state=suspended;
+	group.key_list->se_key_algorithim=aes;
+	group.key_list->se_key_length=32;
+	for(int i=0;i<32;i++){
+		(group.key_list+0)->key_value[i]=0xAA;
+	}
+	time(&((group.key_list+0)->se_key_generation));
+	time(&((group.key_list+0)->se_key_activation));
+	time(&((group.key_list+0)->se_key_expiration));
+	time(&((group.key_list+0)->se_key_cryptoperiod));
+	// -->key_2
+	strcpy(((group.key_list)+1)->se_key_id,"K002");
+	strcpy(((group.key_list)+1)->se_key_label,"KEY_TEST_002       ");
+	strcpy(((group.key_list)+1)->se_key_owner_id,"W002");
+	((group.key_list)+1)->se_key_state=active;
+	((group.key_list)+1)->se_key_algorithim=rsa;
+	((group.key_list)+1)->se_key_length=32;
+	for(int i=0;i<32;i++){
+		(group.key_list+1)->key_value[i]=0xBB;
+	}
+	time(&((group.key_list+1)->se_key_generation));
+	time(&((group.key_list+1)->se_key_activation));
+	time(&((group.key_list+1)->se_key_expiration));
+	time(&((group.key_list+1)->se_key_cryptoperiod));
+	// -->key_3
+	strcpy(((group.key_list)+2)->se_key_id,"K003");
+	strcpy(((group.key_list)+2)->se_key_label,"KEY_TEST_003       ");
+	strcpy(((group.key_list)+2)->se_key_owner_id,"W003");
+	((group.key_list)+2)->se_key_state=compromised;
+	((group.key_list)+2)->se_key_algorithim=rsa;
+	((group.key_list)+2)->se_key_length=32;
+	for(int i=0;i<32;i++){
+		(group.key_list+2)->key_value[i]=0xCC;
+	}
+	time(&((group.key_list+2)->se_key_generation));
+	time(&((group.key_list+2)->se_key_activation));
+	time(&((group.key_list+2)->se_key_expiration));
+	time(&((group.key_list+2)->se_key_cryptoperiod));
+// --------------------------------------------------------------------------------------
+// ---> group 2
+
+	strcpy(group2.group_id,"G002");
+	strcpy(group2.group_name,"GROUP_TEST_002");
+	group2.num_users=0x02;
+	group2.num_keys=0x02;
+	group2.policy.max_num_keys=0xDD;
+	group2.policy.algorithm=0x01;
+	group2.policy.liveness_key=0xCCCCCCCC;
+	group2.user_list=malloc(sizeof(se_user)*(group2.num_users));
+	group2.key_list=malloc(sizeof(se_key)*(group2.num_keys));
+	// --> user-1
+	strcpy(((group2.user_list)+0)->se_id,"U001");
+	strcpy(((group2.user_list)+0)->se_username,"USER_TEST_001                ");
+	// --> user-2
+	strcpy(((group2.user_list)+1)->se_id,"U002");
+	strcpy(((group2.user_list)+1)->se_username,"USER_TEST_002                ");
+	// --> key_1
+	strcpy((group2.key_list)->se_key_id,"K011");
+	strcpy((group2.key_list)->se_key_label,"KEY_TEST_011       ");
+	strcpy((group2.key_list)->se_key_owner_id,"W001");
+	group2.key_list->se_key_state=suspended;
+	group2.key_list->se_key_algorithim=aes;
+	group2.key_list->se_key_length=32;
+	for(int i=0;i<32;i++){
+		(group2.key_list+0)->key_value[i]=0xDD;
+	}
+	time(&((group2.key_list+0)->se_key_generation));
+	time(&((group2.key_list+0)->se_key_activation));
+	time(&((group2.key_list+0)->se_key_expiration));
+	time(&((group2.key_list+0)->se_key_cryptoperiod));
+	// -->key_2
+	strcpy(((group2.key_list)+1)->se_key_id,"K012");
+	strcpy(((group2.key_list)+1)->se_key_label,"KEY_TEST_012       ");
+	strcpy(((group2.key_list)+1)->se_key_owner_id,"W002");
+	((group2.key_list)+1)->se_key_state=active;
+	((group2.key_list)+1)->se_key_algorithim=rsa;
+	((group2.key_list)+1)->se_key_length=32;
+	for(int i=0;i<32;i++){
+		(group2.key_list+1)->key_value[i]=0xEE;
+	}
+	time(&((group2.key_list+1)->se_key_generation));
+	time(&((group2.key_list+1)->se_key_activation));
+	time(&((group2.key_list+1)->se_key_expiration));
+	time(&((group2.key_list+1)->se_key_cryptoperiod));
+
+	se_group g1,g2;
+	g1.num_keys=1;
+	g1.num_users=0;
+	g1.key_list=malloc(sizeof(se_key)*(g1.num_keys));
+	strcpy(g1.group_id,"G001");
+	strcpy(g2.group_id,"G002");
+	strcpy((g1.key_list)->se_key_id,"K004");
+	strcpy((g1.key_list)->se_key_id,"K044");
+	strcpy((g1.key_list)->se_key_label,"KEY_TEST_044       ");
+	strcpy((g1.key_list)->se_key_owner_id,"W004");
+	g1.key_list->se_key_state=suspended;
+	g1.key_list->se_key_algorithim=aes;
+	g1.key_list->se_key_length=32;
+	for(int i=0;i<32;i++){
+		(g1.key_list+0)->key_value[i]=0xFF;
+	}
+	time(&((g1.key_list+0)->se_key_generation));
+	time(&((g1.key_list+0)->se_key_activation));
+	time(&((g1.key_list+0)->se_key_expiration));
+	time(&((g1.key_list+0)->se_key_cryptoperiod));
+
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_DELETE_ALL, &group)) {
+		goto cleanup;
+	}
+
+	sleep(1);
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_INSERT, &group)) {
+		goto cleanup;
+	}
+	/*
+	sleep(1);
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_INSERT, &group2)) {
+		goto cleanup;
+	}
+
+	sleep(1);
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_READ, &group)) {
+		goto cleanup;
+	}
+
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_READ, &g1)) {
+		goto cleanup;
+	}
+
+	*/
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_KEY_ADD, &g1)) {
+		goto cleanup;
+	}
+
+
+	sleep(1);
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_READ, &group)) {
+		goto cleanup;
+	}
+
+	/*
+	sleep(1);
+
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_KEY_REMOVE, &g1)) {
+		goto cleanup;
+	}
+	sleep(1);
+	if (SE3_OK != L1_group_edit(&session, SE3_GROUP_OP_READ, &group)) {
+		goto cleanup;
+	}
+	*/
+	/***** Clean and Logout *****/
+	success = true;
+cleanup:
+	if (logged_in) {
+		L1_logout(&session);
+	}
+	L0_close(&dev);
+	return success;
+	/* */
+}
+

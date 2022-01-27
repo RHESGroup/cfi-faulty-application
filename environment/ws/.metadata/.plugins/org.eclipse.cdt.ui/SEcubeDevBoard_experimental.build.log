@@ -1,0 +1,85 @@
+09:26:25 **** Build of configuration Release for project SEcubeDevBoard_experimental ****
+make all 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_Aes.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_algo_Aes.d" -MT"Application/src/Device/se3_algo_Aes.o" -o "Application/src/Device/se3_algo_Aes.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_Aes.c"
+Finished building: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_Aes.c
+ 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_AesHmacSha256s.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_algo_AesHmacSha256s.d" -MT"Application/src/Device/se3_algo_AesHmacSha256s.o" -o "Application/src/Device/se3_algo_AesHmacSha256s.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_AesHmacSha256s.c"
+Finished building: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_AesHmacSha256s.c
+ 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_HmacSha256.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_algo_HmacSha256.d" -MT"Application/src/Device/se3_algo_HmacSha256.o" -o "Application/src/Device/se3_algo_HmacSha256.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_HmacSha256.c"
+Finished building: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_HmacSha256.c
+ 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_aes256hmacsha256.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_algo_aes256hmacsha256.d" -MT"Application/src/Device/se3_algo_aes256hmacsha256.o" -o "Application/src/Device/se3_algo_aes256hmacsha256.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_aes256hmacsha256.c"
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_aes256hmacsha256.c: In function 'se3_algo_aes256hmacsha256_update':
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_aes256hmacsha256.c:164:9: warning: 'data_enc' may be used uninitialized in this function [-Wmaybe-uninitialized]
+    if (!memcmp(old_auth, (data_enc + datain2_len), 32)){
+         ^
+Finished building: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_aes256hmacsha256.c
+ 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_sha256.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_algo_sha256.d" -MT"Application/src/Device/se3_algo_sha256.o" -o "Application/src/Device/se3_algo_sha256.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_sha256.c"
+Finished building: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_algo_sha256.c
+ 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_core.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_core.d" -MT"Application/src/Device/se3_core.o" -o "Application/src/Device/se3_core.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_core.c"
+In file included from C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_core.c:10:0:
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.h:98:21: warning: 'handlers' defined but not used [-Wunused-variable]
+ static se3_cmd_func handlers[SE3_N_HARDWARE][SE3_CMD1_MAX] = {{
+                     ^
+Finished building: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_core.c
+ 
+Building file: C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c
+Invoking: MCU GCC Compiler
+%cd%
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -std=c99 '-D__weak=__attribute__((weak))' '-D__packed="__attribute__((__packed__))"' -DUSE_HAL_DRIVER -DSTM32F429xx -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Core/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/Drivers/CMSIS/Device/ST/STM32F4xx/Include" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common" -I"C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device"  -O3 -Wall -fmessage-length=0 -ffunction-sections -c -fmessage-length=0 -MMD -MP -MF"Application/src/Device/se3_dispatcher_core.d" -MT"Application/src/Device/se3_dispatcher_core.o" -o "Application/src/Device/se3_dispatcher_core.o" "C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c"
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c: In function 'key_edit':
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:371:8: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name_size'
+     key.name_size = req_params.name_len;
+        ^
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:374:8: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name'
+     key.name = (uint8_t*)req_params.name;
+        ^
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c: In function 'key_list':
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:472:8: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name'
+     key.name = tmp;
+        ^
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:484:69: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name_size'
+             key_info_size = SE3_CMD1_KEY_LIST_KEYINFO_OFF_NAME + key.name_size;
+                                                                     ^
+In file included from C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_core_time.h:14:0,
+                 from C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_security_core.h:8,
+                 from C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.h:11,
+                 from C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:8:
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:502:69: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name_size'
+             SE3_SET16(p, SE3_CMD1_KEY_LIST_KEYINFO_OFF_NAME_LEN, key.name_size);
+                                                                     ^
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Common/se3c0def.h:24:73: note: in definition of macro 'SE3_SET16'
+ #define SE3_SET16(x, pos, val) do{ memcpy(((uint8_t*)(x))+pos, (void*)&(val), 2); }while(0)
+                                                                         ^
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:504:63: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name'
+             memcpy(p + SE3_CMD1_KEY_LIST_KEYINFO_OFF_NAME, key.name, key.name_size);
+                                                               ^
+C:/Users/matteo/Desktop/SEkey Firmware/environment/secube/src/Device/se3_dispatcher_core.c:504:73: error: 'se3_flash_key {aka struct se3_flash_key_}' has no member named 'name_size'
+             memcpy(p + SE3_CMD1_KEY_LIST_KEYINFO_OFF_NAME, key.name, key.name_size);
+                                                                         ^
+make: *** [Application/src/Device/se3_dispatcher_core.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+09:26:33 Build Failed. 8 errors, 2 warnings. (took 7s.379ms)
+

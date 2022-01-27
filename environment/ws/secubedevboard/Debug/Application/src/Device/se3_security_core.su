@@ -1,0 +1,11 @@
+se3_security_core.c:69:6:se3_security_core_init	8	static
+se3_security_core.c:74:12:record_find	24	static
+se3_security_core.c:88:5:record_set	64	static
+se3_security_core.c:126:5:record_get	32	static
+se3_security_core.c:144:10:crypto_init	96	static
+se3_security_core.c:256:10:crypto_update	104	static
+se3_security_core.c:360:10:crypto_set_time	32	static
+se3_security_core.c:387:10:crypto_list	48	static
+se3_security_core.c:428:6:se3_payload_cryptoinit	96	static
+se3_security_core.c:439:5:se3_payload_encrypt	24	static
+se3_security_core.c:473:5:se3_payload_decrypt	24	static

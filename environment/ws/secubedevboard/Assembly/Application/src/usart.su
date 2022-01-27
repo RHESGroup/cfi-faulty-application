@@ -1,0 +1,7 @@
+usart.c:46:6:MX_USART1_UART_Init	8	static
+usart.c:65:6:MX_USART6_SMARTCARD_Init	8	static
+usart.c:84:6:MX_UART7_Init	8	static
+usart.c:100:6:HAL_UART_MspInit	48	static
+usart.c:171:6:HAL_SMARTCARD_MspInit	40	static
+usart.c:207:6:HAL_UART_MspDeInit	16	static
+usart.c:234:6:HAL_SMARTCARD_MspDeInit	16	static

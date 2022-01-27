@@ -1,0 +1,8 @@
+se3_keys.c:17:5:se3_key_find	24	static
+se3_keys.c:32:5:se3_key_remove	16	static
+se3_keys.c:41:5:se3_key_new	24	static
+se3_keys.c:54:6:se3_key_read	16	static
+se3_keys.c:69:5:se3_key_equal	24	static
+se3_keys.c:95:6:se3_key_read_data	24	static
+se3_keys.c:100:5:se3_key_write	24	static
+se3_keys.c:136:6:se3_key_fingerprint	40	static

@@ -1,0 +1,7 @@
+uartInterface.c:3:9:sendCommand	544	static
+uartInterface.c:43:9:logToDebugger	32	static
+uartInterface.c:57:8:readLine	40	static
+uartInterface.c:96:9:readFromUart	32	static
+uartInterface.c:123:6:Error_Handler	4	static,ignoring_inline_asm
+uartInterface.c:134:6:SystemClock_Config	88	static
+uartInterface.c:171:6:systemInit	8	static
